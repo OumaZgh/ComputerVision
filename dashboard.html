@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Contrôle Qualité PCBA</title>
+    <link rel="stylesheet" href="static/css/dashboard.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-content">
+            <img src="static\images\47d0e0e3-bac7-47c1-9abe-5160a09d16d5_removalai_preview.png" alt="Logo" class="logo">
+            <div class="date-container">
+                <div id="current-date" class="date-box"></div>
+                <div id="last-update" class="update-box"></div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1>CONTRÔLE QUALITÉ PCBA</h1>
+        </header>
+        
+        <div class="dashboard">
+            <div class="card total-card">
+                <div class="card-title">TOTAL INSPECTIONS</div>
+                <div class="card-value" id="total-value">--</div> <!-- ✅ Valeur par défaut -->
+            </div>
+
+            <div class="card pass-card">
+                <div class="card-title">TAUX DE CONFORMITÉ</div>
+                <div class="card-value" id="pass-value">--%</div>
+            </div>
+
+            <div class="card fail-card">
+                <div class="card-title">TAUX DE NON-CONFORMITÉ</div>
+                <div class="card-value" id="fail-value">--%</div>
+            </div>
+
+            <div class="card defect-card">
+                <div class="card-title">DÉFAUT PRINCIPAL</div>
+                <div class="card-value" id="defect-name">--</div>
+                <div id="defect-count">-- occurrences</div>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <canvas id="passFailChart"></canvas>
+        </div>
+    </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+<script src="static/js/dashboard.js"></script>
+</body>
+</html>

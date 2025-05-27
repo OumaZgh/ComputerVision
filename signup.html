@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inspection Cartes Électroniques</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/signup.css">
+
+</head>
+<header>
+  <div class="logo-container">
+    <img src="static/images/47d0e0e3-bac7-47c1-9abe-5160a09d16d5_removalai_preview.png" alt="Logo">
+  </div>
+
+
+  <div class="header-right">
+    <div class="user-info">
+      <div>Admin : <strong>{{ username }}</strong></div>
+    </div>
+
+    <!-- Formulaire de déconnexion -->
+    <form action="/logout" method="get">
+      <button type="submit" class="logout-button">Déconnexion</button>
+    </form>
+  </div>
+</header>
+<body>
+
+
+  <div class="container">
+    {% if message %}
+      <div class="message">{{ message }}</div>
+    {% endif %}
+
+    <h2>Ajouter un nouvel utilisateur</h2>
+
+    <form action="/signup" method="post" class="form-container">
+      <div class="input-group">
+        <label for="username">Identifiant</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+
+      <div class="input-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div class="input-group">
+        <label for="password">Mot de passe</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+
+      <div class="input-group">
+        <label for="statut">Statut</label>
+        <select id="statut" name="statut" required>
+          <option value="operateur">Opérateur</option>
+          <option value="admin">Admin</option>
+        </select>
+      </div>
+
+      <div class="button-group">
+        <button type="submit">Ajouter l'utilisateur</button>
+        <a href="/dashboard-admin">Retour</a>
+      </div>
+    </form>
+  </div>
+
+</body>
+</html>

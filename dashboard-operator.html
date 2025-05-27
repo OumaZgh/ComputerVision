@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inspection Cartes Électroniques</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="static\css\operateur.css">
+</head>
+<body>
+
+ <header>
+  <div class="logo-container">
+    <img src="static\images\47d0e0e3-bac7-47c1-9abe-5160a09d16d5_removalai_preview.png" alt="Logo">
+  </div>
+
+  <div class="navbar-stepper">
+    <ul class="stepper">
+      <li class="step" data-step="1">
+        <span class="step-label">Identification</span>
+      </li>
+      <li class="step" data-step="2">
+        <span class="step-label">Inspection BOT</span>
+      </li>
+      <li class="step" data-step="3">
+        <span class="step-label">Inspection TOP</span>
+      </li>
+      <li class="step" data-step="4">
+        <span class="step-label">Validation</span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="header-right">
+    <div class="user-info">
+      <div>Opérateur : <strong>{{ username }}</strong></div>
+      <div class="status-indicator">
+        <div class="status-dot"></div>
+        <span>Système actif</span>
+      </div>
+    </div>
+    <button class="logout-button">Déconnexion</button>
+  </div>
+</header>
+
+  <main>
+    <!-- 80% Main Content (Camera Feeds + Actions) -->
+    <div class="main-content">
+      <div class="inspection-view">
+        <div class="card">
+          <header>
+            <div class="card-header-left">Flux Vidéo Live</div>
+          </header>
+          <div class="content">
+            <div class="scan-line"></div>
+
+
+            <div class="overlay-corner top-left"></div>
+            <div class="overlay-corner top-right"></div>
+            <div class="overlay-corner bottom-left"></div>
+            <div class="overlay-corner bottom-right"></div>
+            <div class="real-time-indicator">
+              <div class="indicator-dot"></div>
+              <span>LIVE</span>
+            </div>
+            <img id="cameraStream" src="http://localhost:8080/video" crossOrigin="anonymous" alt="Flux vidéo en direct">
+
+          </div>
+        </div>
+        <div class="card">
+          <header>
+            <div class="card-header-left">Résultat d'Inspection IA</div>
+          </header>
+          <div class="content">
+
+            <div class="overlay-corner top-left"></div>
+            <div class="overlay-corner top-right"></div>
+            <div class="overlay-corner bottom-left"></div>
+            <div class="overlay-corner bottom-right"></div>
+            <img id="aiOverlay" alt="Résultat IA" src="/api/placeholder/640/480"  />
+          </div>
+        </div>
+      </div>
+
+      <div class="panel actions-panel">
+    <h2>Actions d'Inspection</h2>
+    <div class="actions">
+      <button class="inspect">Inspection BOT</button>
+      <button class="inspect-top" type="button">Inspection TOP</button>
+      <button class="validate">Valider l'Inspection</button>
+      <button class="review">Réviser l'Inspection</button>
+    </div>
+  </div>
+</div>
+
+    <!-- 20% Side Panel (Information) -->
+    <div class="side-panel">
+      <div class="panel detections">
+        <h2>Résultats de l'Inspection IA</h2>
+        <ul id="detections-list">
+          <li id="no-defects" class="status-message">Aucun défaut détecté</li>
+        </ul>
+      </div>
+
+      <!-- Entrée manuelle -->
+      <div id="manual-entry-panel" class="panel manual-entry">
+        <h2>Entrée Manuelle</h2>
+        <form id="manual-entry-form">
+          <div class="form-field">
+            <label for="manual-ref">Référence :</label>
+            <input type="text" id="manual-ref" name="manualRef" placeholder="Saisir la référence" required />
+          </div>
+          <div class="form-field">
+            <label for="manual-of">N° OF :</label>
+            <input type="text" id="manual-of" name="manualOf" placeholder="Saisir le N° OF" required />
+          </div>
+          <!-- Emplacement pour les messages d'erreur -->
+          <div id="error-message" class="error-message" style="display: none;"></div>
+          <button type="button" class="verify">Vérifier</button>
+        </form>
+      </div>
+
+      <!-- Carte Info (masqué au départ) -->
+      <div id="carte-info-panel" class="panel carte-info">
+        <h2>Informations Carte</h2>
+        <p><strong>Référence :</strong> <span id="ci-ref">--</span></p>
+        <p><strong>N° OF :</strong> <span id="ci-of">--</span></p>
+        <p><strong>Famille :</strong> <span>Contrôle &amp; Puissance</span></p>
+        <p><strong>Date d'Inspection :</strong> <span id="date-inspection">22/04/2025</span></p>
+        <p><strong>Statut Carte :</strong> <span>En cours</span></p>
+        <div class="time-counter">
+          <span>Temps d'inspection:</span>
+          <span id="inspection-time">00:00:00</span>
+          <div class="rotating-icon"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+
+<script src="static\js\operateur.js"></script>
+
+</body>
+</html>

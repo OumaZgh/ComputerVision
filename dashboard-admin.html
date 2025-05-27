@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard Admin</title>
+  <link rel="stylesheet" href="static\css\admin.css">
+</head>
+<body class="tech-grid-pattern">
+  <header>
+    
+      
+      <nav class="navbar">
+        <img src="static\images\47d0e0e3-bac7-47c1-9abe-5160a09d16d5_removalai_preview.png" alt="Logo" class="logo">
+        <ul class="nav-links">
+          <li><a href="/dashboard">Tableau de bord</a></li>
+          <li><a href="/dashboard-operator">Inspection</a></li>
+          <li><a href="/signup">Ajout Operateur</a></li>
+        </ul>
+        <div class="header-right">
+          <div class="user-info">
+              <div>Admin : <strong>{{ username }}</strong></div>
+              <div class="status-indicator">
+                  <div class="status-dot"></div>
+                  <span>Système actif</span>
+              </div>
+          </div>
+          <form action="/logout" method="get">
+              <button type="submit" class="logout-button">Déconnexion</button>
+          </form>
+      </div>
+      </nav>
+      
+      
+       
+      
+    
+  </header>
+  
+  <main>
+    <section class="stats">
+      <div class="stats-card fade-in-left delay-1">
+        <h3>Total Inspections</h3>
+        <p id="total-inspections">--</p>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progress-total"></div>
+        </div>
+      </div>
+      <div class="stats-card fade-in-left delay-2">
+        <h3>Défaut le plus fréquent</h3>
+        <p id="frequent-defect">--</p>
+        <small id="defect-count" class="text-muted">-- occurrences</small>
+      </div>
+      <div class="stats-card fade-in-left delay-3">
+        <h3>% Fail</h3>
+        <p id="fail-rate">--%</p>
+        <div class="progress-bar">
+          <div class="progress-fill progress-fail" id="progress-fail"></div>
+        </div>
+      </div>
+      <div class="stats-card fade-in-left delay-4">
+        <h3>% Pass</h3>
+        <p id="pass-rate">--%</p>
+        <div class="progress-bar">
+          <div class="progress-fill progress-pass" id="progress-pass"></div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="historique fade-in-right">
+      <h2>Historique des Inspections</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>OF</th>
+            <th>PRF</th>
+            <th>SN</th>
+            <th>Résultat</th>
+            <th>Défauts</th>
+            <th>Path_TOP</th>
+            <th>Path_BOT</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody id="inspection-table">
+        <!-- Les lignes seront ajoutées en JS -->
+        </tbody>
+      </table>
+    </section>
+  </main>
+  
+  <script src="static\js\admin.js"></script>
+</body>
+</html>
