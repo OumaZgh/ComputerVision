@@ -1,0 +1,117 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: #162b4d;
+}
+
+.navbar {
+    background: linear-gradient(to right, #ffffff, #162b4d);
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+    height: 50px;
+}
+
+
+.date-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    text-align: right;
+    width: fit-content; 
+    position: absolute;
+    top: 40px; 
+    right: 20px; 
+    transform: translateY(-50%); 
+}
+
+
+.date-box, .update-box {
+    padding: 6px 12px; 
+    font-size: 14px; 
+    border-radius: 6px;
+    font-weight: bold;
+    color: white !important;
+    display: inline-block;
+    min-width: 120px; 
+    text-align: center;
+}
+
+
+.date-box {
+    background: #ff9933;
+    margin-bottom: 5px;
+}
+
+.update-box {
+    background: #162b4d;
+}
+
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    justify-content: center;
+}
+
+.card {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(22, 43, 77, 0.1);
+    transition: 0.3s;
+}
+
+.card-title {
+    font-size: 18px;
+    color: #566b8c;
+}
+
+.card-value {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.total-card {
+    border-top: 4px solid #162b4d;
+}
+
+.pass-card {
+    border-top: 4px solid #ff9933;
+}
+
+.fail-card {
+    border-top: 4px solid #ffffff;
+}
+
+.defect-card {
+    border-top: 4px solid #ff9933;
+}
+
+.chart-container {
+    width: 100%;
+    max-width: 600px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(22, 43, 77, 0.1);
+}
